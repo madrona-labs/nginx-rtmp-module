@@ -457,6 +457,7 @@ ngx_rtmp_record_node_open(ngx_rtmp_session_t *s,
     rctx->conf = rracf;
     rctx->last = *ngx_cached_time;
     rctx->timestamp = ngx_cached_time->sec;
+    rctx->timestamp_ms = ((ngx_msec_t) ngx_cached_time->sec) * 1000 + ((ngx_uint_t)ngx_cached_time->msec);
 
     ngx_rtmp_record_make_path(s, rctx, &path);
 
