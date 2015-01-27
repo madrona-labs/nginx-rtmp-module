@@ -393,8 +393,8 @@ ngx_rtmp_record_make_path(ngx_rtmp_session_t *s,
 
     /* append timestamp */
     if (rracf->unique) {
-        p = ngx_cpymem(p, buf, ngx_min(ngx_sprintf(buf, "-%T",
-                       rctx->timestamp) - buf, l - p));
+        p = ngx_cpymem(p, buf, ngx_min(ngx_sprintf(buf, "-%M",
+                       rctx->timestamp_ms) - buf, l - p));
     }
 
     if (ngx_strchr(rracf->suffix.data, '%')) {
